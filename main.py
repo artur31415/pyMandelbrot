@@ -29,7 +29,7 @@ force_increment = 0.1
 
 #
 max_iterations = 100
-upper_bound = 100000 #16
+upper_bound = 16
 min_val = -2.5
 max_val = 2.5
 
@@ -40,6 +40,7 @@ def map(value, istart, istop, ostart, ostop):
     return ostart + (ostop - ostart) * ((value - istart) / (istop - istart))
 
 def draw_mandelbrot_set():
+    screen.fill((255, 255, 255))
     for i in range(width):
         for j in range(height):
             a = map(i, 0, width, min_val, max_val)
@@ -71,6 +72,7 @@ def draw_mandelbrot_set():
             #     print("pixel_value = ", str(pixel_value))
 
             screen.set_at((i, j), (pixel_value, pixel_value, pixel_value))
+    print("calculated!")
 ################################################################################################
 #                                           MAIN LOOP
 ################################################################################################
@@ -78,7 +80,7 @@ def draw_mandelbrot_set():
 draw_mandelbrot_set()
 pygame.display.flip()
 
-print("calculated!")
+
 
 while running:
 
@@ -98,6 +100,10 @@ while running:
     ##################################################################
     # Flip the display
     ##################################################################
+    max_val -= 0.1
+    print("max_val = ", str(max_val))
+    draw_mandelbrot_set()
+    pygame.display.flip()
     
 
 # Done! Time to quit.
