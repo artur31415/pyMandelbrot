@@ -30,8 +30,8 @@ force_increment = 0.1
 #
 max_iterations = 100
 upper_bound = 16
-min_val = -2.5
-max_val = 2.5
+min_val = -1.9
+max_val = 0.3
 
 ################################################################################################
 #                                           FUNCTIONS
@@ -101,6 +101,7 @@ while running:
     # Flip the display
     ##################################################################
     max_val -= 0.1
+    min_val += 0.2
     print("max_val = ", str(max_val))
     draw_mandelbrot_set()
     pygame.display.flip()
